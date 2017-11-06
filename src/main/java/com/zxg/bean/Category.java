@@ -14,7 +14,7 @@ import java.util.Date;
 
 public class Category implements Serializable {
 	/**
-	 * serialVersionUID:TODO（序列号）
+	 * serialVersionUID:序列号
 	 * @since 1.0.0
 	 */
 	private static final long serialVersionUID = 8032313006156816397L;
@@ -24,7 +24,6 @@ public class Category implements Serializable {
 	private Integer	status;//发布状态。1发布，0不发布
 	public Category() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 	public Category(Integer id, String name, Date createTime, Integer status) {
 		super();

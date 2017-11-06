@@ -31,7 +31,6 @@ public class User implements Serializable {
 
     public User() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
     public User(Integer id, String username, String account, Date createTime, Date updateTime, Integer active,
