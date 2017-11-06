@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>内容管理</title>
+    <#include "/public/common.html"/>
+</head>
+<body class="site-menubar-fold site-menubar-keep">
+<#include "/public/left.html">
+    <#--内容部分-->
+        <div>dshfjshkfhsk</div>
+        <script>
+            $(function () {
+                loading("数据加载中....", 1);
+                $("#nav-tabs-solidlist").find("li").on("click", function () {
+                    $(this).addClass("active").siblings().removeClass("active");
+                });
+            });
+        </script>
+        <#--优化left.html显示-->
+        <script>
+            $(function () {
+                $(".site-menu-item").removeClass("active");
+                $(".site-menu-item").eq(0).addClass("active");
+            })
+        </script>
+        <script>
+            $(function () {
+                content.init();
+            })
+            var content={
+                init:function () {
+                },
+                update:function () {
+                },
+            }
+        </script>
+</body>
+</html>

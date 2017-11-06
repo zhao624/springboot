@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zxg.mapper.IUserMapper" >
+	<!-- 查询登录 -->
+	<select id="getLogin" resultType="user">
+		SELECT
+			id,
+			username,
+			account,
+			header_pic as headerPic
+		FROM
+			mk_user
+		WHERE
+			account = #{account}
+		AND `password` = #{password}
+	</select>
+	
+	
+	<select id="getUser" resultType="user">
+		SELECT 
+			id,
+			username,
+			account,
+			create_time as createTime,
+			update_time as updateTime,
+			active,
+			password,
+			header_pic as headerPic
+		FROM
+		 mk_user
+		LIMIT 0 ,10
+	</select>
+	
+	
+	
+	
+</mapper>
