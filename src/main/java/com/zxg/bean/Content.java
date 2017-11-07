@@ -14,12 +14,12 @@ public class Content {
     private Integer categoryId;
     private Integer hits;
     private Integer loves;
-    private Integer user_id;
+    private Integer userId;
 
     public Content() {
     }
 
-    public Content(Integer id, String title, String description, String content, String img, Date createTime, Date updateTime, Integer status, Integer categoryId, Integer hits, Integer loves, Integer user_id) {
+    public Content(Integer id, String title, String description, String content, String img, Date createTime, Date updateTime, Integer status, Integer categoryId, Integer hits, Integer loves, Integer userId) {
         this.id = id;
         this.title = title;
         this.description = description;
@@ -31,7 +31,7 @@ public class Content {
         this.categoryId = categoryId;
         this.hits = hits;
         this.loves = loves;
-        this.user_id = user_id;
+        this.userId = userId;
     }
 
     public Integer getId() {
@@ -122,12 +122,12 @@ public class Content {
         this.loves = loves;
     }
 
-    public Integer getUser_id() {
-        return user_id;
+    public Integer getUserId() {
+        return userId;
     }
 
-    public void setUser_id(Integer user_id) {
-        this.user_id = user_id;
+    public void setUserId(Integer userId) {
+        this.userId = userId;
     }
 
     @Override
@@ -144,7 +144,7 @@ public class Content {
                 ", categoryId=" + categoryId +
                 ", hits=" + hits +
                 ", loves=" + loves +
-                ", user_id=" + user_id +
+                ", userId=" + userId +
                 '}';
     }
 }

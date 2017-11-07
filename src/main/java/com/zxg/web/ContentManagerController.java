@@ -5,9 +5,7 @@ import com.zxg.bean.Params;
 import com.zxg.mapper.IContentMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
@@ -30,22 +28,14 @@ public class ContentManagerController {
      * @since 1.0.0<br/>
      */
     @RequestMapping("/content")
-    public String concont() {
-        return "contentManage";
-
-    }
-    @RequestMapping("/contentsTemplate")
-    @ResponseBody()
-    public ModelAndView showContent(){
+    public ModelAndView concont() {
         ModelAndView modelAndView=new ModelAndView();
-        Params params=new Params();
-        //查询所有文章
-        List<Content> list=contentMapper.findContent(params);
-        modelAndView.addObject("contentslist",list);
-        modelAndView.setViewName("/");
+        //select all content
+        List<Content> list=contentMapper.findContent(new Params());
+        modelAndView.addObject("contentsList",list);
+        modelAndView.setViewName("/contentManage");
         return modelAndView;
     }
-
 
 
 }

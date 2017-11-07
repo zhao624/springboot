@@ -25,5 +25,4 @@
 	<select id="getCount" resultType="int">
 		select Count(1) from mk_content
 	</select>
-	
 </mapper>

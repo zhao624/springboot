@@ -40,11 +40,48 @@
                                             <tr>
                                                 <th>ID</th>
                                                 <th>Title</th>
-                                                <th>Last Name</th>
-                                                <th>Username</th>
+                                                <th>Description</th>
+                                                <th>Content</th>
+                                                <th>img</th>
+                                                <th>CreateTime</th>
+                                                <th>UpdateTime</th>
+                                                <th>Status</th>
+                                                <th>CategoryId</th>
+                                                <th>Hits</th>
+                                                <th>Loves</th>
+                                                <th>UserID</th>
                                             </tr>
                                             </thead>
-
+                                            <tbody>
+                                            <#list contentsList as content>
+                                                <#if content??>
+                                                    <tr>
+                                                        <td>${content.id}</td>
+                                                        <td>${content.title}</td>
+                                                        <td>${content.description}</td>
+                                                        <td><a href="javascript:void(0)" class="showdetails">查看详情</a></td>
+                                                        <td>${content.img}</td>
+                                                        <#if content.createTime??>
+                                                            <td>${(content.createTime)?datetime}
+                                                            </td>
+                                                            <#else>
+                                                                <td>null</td>
+                                                        </#if>
+                                                        <#if content.updateTime??>
+                                                            <td>${(content.updateTime)?datetime}
+                                                            </td>
+                                                            <#else>
+                                                                <td>null</td>
+                                                        </#if>
+                                                        <td>${content.status}</td>
+                                                        <td>${content.categoryId}</td>
+                                                        <td>${content.hits}</td>
+                                                        <td>${content.loves}</td>
+                                                        <td>${content.userId}</td>
+                                                    </tr>
+                                                </#if>
+                                            </#list>
+                                            </tbody>
                                         </table>
                                     </div>
                                 </div>
@@ -54,6 +91,7 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         <table class="table table-hover">
+                                            <tr><td>文章ID</td><td><input type="text" disabled value="1"></td></tr>
 
 
                                         </table>
