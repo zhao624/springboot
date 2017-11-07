@@ -36,7 +36,9 @@ public class UserManagerController {
 		modelAndView.addObject("user",user);
 		modelAndView.setViewName("userManage");
 		return modelAndView;
+
 	}
+
 
 
 }
