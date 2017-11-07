@@ -4,7 +4,7 @@
 
 <mapper namespace="com.zxg.mapper.IContentMapper" >
 	<!-- 查询登录 -->
-	<select id="findContent" resultType="content">
+	<select id="findContent" resultType="content" parameterType="params">
 		SELECT
 			id,
 			title,
@@ -20,7 +20,10 @@
 			user_id as userId
 		FROM
 			mk_content
+			limit #{pno},#{psize}
 	</select>
-	
+	<select id="getCount" resultType="int">
+		select Count(1) from mk_content
+	</select>
 	
 </mapper>

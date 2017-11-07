@@ -28,7 +28,8 @@ public class LoginController {
 	public String toLogin() {
 		return "login";
 	}
-	
+
+
 	@Autowired
 	private IUserMapper userMapper;
 	@ResponseBody

@@ -7,7 +7,86 @@
 <body class="site-menubar-fold site-menubar-keep">
 <#include "/public/left.html">
     <#--内容部分-->
-        <div>dshfjshkfhsk</div>
+        <div class="page profile profile_index">
+            <div class="page-content">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12">
+                        <div class="nav-tabs-horizontal nav-tabs-inverse ">
+                            <ul class="nav nav-tabs nav-tabs-solid profile_nav"
+                                id="nav-tabs-solidlist">
+                                <li class="active"><a href="javascript:void(0);"
+                                                      class="padding-horizontal-30"> <i
+                                        class="iconfont icon-vip fz20 tp1"></i>文章查询
+                                </a></li>
+                                <li><a href="javascript:void(0);"
+                                       class="padding-horizontal-30"> <i
+                                        class="iconfont icon-xingxing fz20 tp1"></i>内容编辑
+                                </a></li>
+                                <li><a href="javascript:void(0);"
+                                       class="padding-horizontal-30"> <i
+                                        class="iconfont icon-like fz20 tp1"></i>文章状态管理
+                                </a></li>
+                                <li><a href="javascript:void(0);"
+                                       class="padding-horizontal-30"> <i
+                                        class="iconfont icon-comment fz20 tp1"></i>文章添加
+                                </a></li>
+                            </ul>
+                            <!--第一个选项卡-->
+                            <div class="tab-content">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <table class="table table-hover">
+                                            <thead>
+                                            <tr>
+                                                <th>ID</th>
+                                                <th>Title</th>
+                                                <th>Last Name</th>
+                                                <th>Username</th>
+                                            </tr>
+                                            </thead>
+
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--第二个选项卡-->
+                            <div class="tab-content">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <table class="table table-hover">
+
+
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--第三个选项卡-->
+                            <div class="tab-content">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <table class="table table-hover">
+
+
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--第四个选项卡-->
+                            <div class="tab-content">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <table class="table table-hover">
+
+
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <script>
             $(function () {
                 loading("数据加载中....", 1);
@@ -17,22 +96,22 @@
             });
         </script>
         <#--优化left.html显示-->
-        <script>
-            $(function () {
-                $(".site-menu-item").removeClass("active");
-                $(".site-menu-item").eq(0).addClass("active");
-            })
-        </script>
-        <script>
-            $(function () {
-                content.init();
-            })
-            var content={
-                init:function () {
-                },
-                update:function () {
-                },
-            }
-        </script>
+            <script>
+                $(function () {
+                    $(".site-menu-item").removeClass("active");
+                    $(".site-menu-item").eq(0).addClass("active");
+                })
+            </script>
+            <script>
+                $(function () {
+                    content.init();
+                })
+                var content = {
+                    init: function () {
+                    },
+                    update: function () {
+                    },
+                }
+            </script>
 </body>
 </html>
