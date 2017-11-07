@@ -13,7 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 @RequestMapping("/admin")
-public class BanaerManageController {
+public class BannerManageController {
 	
 	@Autowired
 	private IBananerMapper bananerMapper;
