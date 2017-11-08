@@ -20,7 +20,7 @@ public class CategoryManagerController {
 	@RequestMapping(value="/category")
 	public ModelAndView toAssortment() {
 		ModelAndView modelAndView = new ModelAndView();
-		List<Category> category= categoryMapper.findCategory();
+		List<Category> category= categoryMapper.quertAllCategory();
 		modelAndView.addObject("category",category);
 		modelAndView.setViewName("categroyManage");
 		return modelAndView;

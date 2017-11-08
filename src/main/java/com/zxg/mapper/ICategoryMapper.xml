@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.zxg.mapper.ICategoryMapper" >
+<mapper namespace="com.zxg.mapper.ICategoryMapper">
 
-	<select id="findCategory" resultType="category">
+    <select id="quertAllCategory" resultType="category">
 		SELECT
 			id,
 			NAME,
@@ -13,5 +13,17 @@
 		FROM
 			mk_category
 	</select>
-	
+    <update id="update" parameterType="category">
+		UPDATE mk_category
+		SET NAME = #{name},`status`=#{status} WHERE id=#{id}
+	</update>
+    <insert id="addCategroy" parameterType="category">
+		INSERT INTO mk_category (`name`, create_time, `status`)
+		VALUES
+		(
+			#{name},
+			NOW(),
+			#{status}
+		)
+	</insert>
 </mapper>

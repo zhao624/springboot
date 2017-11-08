@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.zxg.mapper.IContentMapper" >
-	<!-- 查询登录 -->
-	<select id="findContent" resultType="content" parameterType="params">
+<mapper namespace="com.zxg.mapper.IContentMapper">
+    <!-- 查询登录 -->
+    <select id="findContent" resultType="content" parameterType="params">
 		SELECT
 			id,
 			title,
@@ -22,7 +22,22 @@
 			mk_content
 			limit #{pno},#{psize}
 	</select>
-	<select id="getCount" resultType="int">
+    <select id="getCount" resultType="int">
 		select Count(1) from mk_content
 	</select>
+    <update id="update" parameterType="content">
+		UPDATE mk_content
+		SET title = #{title},
+ 		description = #{description},
+ 		content = #{content},
+ 		img = #{img},
+ 		update_time = NOW(),
+ 		`status` = #{status},
+ 		category_id = #{categoryId},
+ 		hits = #{hits},
+		 loves = #{loves},
+ 		user_id = #{userId}
+		WHERE
+			id = #{id}
+	</update>
 </mapper>

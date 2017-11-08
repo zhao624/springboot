@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.zxg.mapper.IUserMapper" >
-	<!-- 查询登录 -->
-	<select id="getLogin" resultType="user">
+<mapper namespace="com.zxg.mapper.IUserMapper">
+    <!-- 查询登录 -->
+    <select id="getLogin" resultType="user">
 		SELECT
 			id,
 			username,
@@ -16,9 +16,9 @@
 			account = #{account}
 		AND `password` = #{password}
 	</select>
-	
-	
-	<select id="getUser" resultType="user">
+
+
+    <select id="getUser" resultType="user">
 		SELECT 
 			id,
 			username,
@@ -32,8 +32,36 @@
 		 mk_user
 		LIMIT 0 ,10
 	</select>
-	
-	
-	
-	
+
+    <update id="update" parameterType="user">
+     UPDATE mk_user
+    SET
+      username = #{username},
+      update_time = NOW(),
+      active = #{active},
+      `password` = #{password},
+      header_pic = #{headerPic}
+    WHERE
+	  id = #{id}
+    </update>
+    <insert id="addUser" parameterType="user">
+      INSERT INTO mk_user (
+        username,
+        account,
+        create_time,
+        active,
+        `password`,
+        header_pic
+    )
+    VALUES
+        (
+            #{username},
+            #{account},
+            NOW(),
+            #{active},
+            #{password},
+            #{headerPic}
+        )
+    </insert>
+
 </mapper>
