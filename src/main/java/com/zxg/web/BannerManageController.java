@@ -12,21 +12,19 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 @RequestMapping("/admin")
-public class BannerManageController  {
-	
-	@Autowired
-	private IBannerMapper bananerMapper;
-	
-	@RequestMapping("/banner")
-	public ModelAndView slideshow() {
-		ModelAndView modelAndView=new ModelAndView();
-		List<Banner> banner = bananerMapper.getBanner();
-		modelAndView.addObject("banner",banner);
-		modelAndView.setViewName("bannerManage");
-		return modelAndView;
-	}
-	
+public class BannerManageController {
 
-	
-	
+    @Autowired
+    private IBannerMapper bananerMapper;
+
+    @RequestMapping("/banner")
+    public ModelAndView slideshow() {
+        ModelAndView modelAndView = new ModelAndView();
+        List<Banner> banner = bananerMapper.getBanner();
+        modelAndView.addObject("banner", banner);
+        modelAndView.setViewName("bannerManage");
+        return modelAndView;
+    }
+
+
 }

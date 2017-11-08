@@ -14,7 +14,7 @@ import com.zxg.util.MD5PwdUtil;
 
 @Controller()
 /**
- * 
+ *
  * 登录控制类
  * LoginController<br/>
  * 创建人:zhaoxugui<br/>
@@ -23,24 +23,25 @@ import com.zxg.util.MD5PwdUtil;
  *
  */
 public class LoginController {
-	
-	@RequestMapping("/login")
-	public String toLogin() {
-		return "login";
-	}
+
+    @RequestMapping("/login")
+    public String toLogin() {
+        return "login";
+    }
 
 
-	@Autowired
-	private IUserMapper userMapper;
-	@ResponseBody
-	@RequestMapping(value="/logined",method=RequestMethod.POST)
-	public String logined(User user,HttpSession session){
-		User user2 = userMapper.getLogin(user.getAccount(),MD5PwdUtil.md5Base64(user.getPassword()));
-		if(user2!=null){
-			session.setAttribute("session_user", user2);
-			return "success";
-		}else{
-			return "fail";
-		}
-	}
+    @Autowired
+    private IUserMapper userMapper;
+
+    @ResponseBody
+    @RequestMapping(value = "/logined", method = RequestMethod.POST)
+    public String logined(User user, HttpSession session) {
+        User user2 = userMapper.getLogin(user.getAccount(), MD5PwdUtil.md5Base64(user.getPassword()));
+        if (user2 != null) {
+            session.setAttribute("session_user", user2);
+            return "success";
+        } else {
+            return "fail";
+        }
+    }
 }

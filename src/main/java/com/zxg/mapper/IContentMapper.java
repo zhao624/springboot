@@ -20,8 +20,20 @@ public interface IContentMapper {
      */
     int getCount();
 
+    /**
+     * 文章修改
+     *
+     * @param content
+     * @return
+     */
     int update(Content content);
 
+    /**
+     * 文章添加
+     *
+     * @param content
+     * @return
+     */
     int addContent(Content content);
 
 }

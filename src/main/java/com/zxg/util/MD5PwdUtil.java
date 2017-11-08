@@ -32,7 +32,7 @@ public class MD5PwdUtil {
         return new BASE64Encoder().encode(b);
     }
 
-    public static void main(String[] args) {
+    /*public static void main(String[] args) {
         System.out.println(MD5PwdUtil.md5Base64("123456"));
-    }
+    }*/
 }

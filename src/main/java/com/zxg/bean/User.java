@@ -3,15 +3,6 @@ package com.zxg.bean;
 import java.io.Serializable;
 import java.util.Date;
 
-/**
- *
- * User<br/>
- * 创建人:zhaoxugui<br/>
- * 时间：2017年11月2日-下午4:22:32 <br/>
- *
- * @version 1.0.0<br/>
- *
- */
 public class User implements Serializable {
     /**
      * serialVersionUID:序列号

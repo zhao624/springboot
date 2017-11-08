@@ -3,13 +3,6 @@ package com.zxg.bean;
 import java.io.Serializable;
 import java.util.Date;
 
-/**
- * 分类字段<br/>
- * 创建人:houlibing<br/>
- * 时间：2017年11月3日-下午1:51:41 <br/>
- *
- * @version 1.0.0<br/>
- */
 
 public class Category implements Serializable {
     /**

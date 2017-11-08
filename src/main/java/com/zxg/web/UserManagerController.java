@@ -12,15 +12,6 @@ import com.zxg.bean.User;
 import com.zxg.mapper.IUserMapper;
 import org.springframework.web.servlet.ModelAndView;
 
-/**
- * 
- * 
- * UserManagerController<br/>
- * 创建人:万际洪<br/>
- * 时间：2017年11月3日-下午2:21:11 <br/>
- * @version 1.0.0<br/>
- *
- */
 @Controller
 @RequestMapping("/admin")
 public class UserManagerController {

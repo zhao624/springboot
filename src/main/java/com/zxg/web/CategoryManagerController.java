@@ -13,16 +13,16 @@ import com.zxg.bean.Category;
 @Controller
 @RequestMapping("/admin")
 public class CategoryManagerController {
-	
-	@Autowired
-	private ICategoryMapper categoryMapper;
-	
-	@RequestMapping(value="/category")
-	public ModelAndView toAssortment() {
-		ModelAndView modelAndView = new ModelAndView();
-		List<Category> category= categoryMapper.quertAllCategory();
-		modelAndView.addObject("category",category);
-		modelAndView.setViewName("categroyManage");
-		return modelAndView;
-	}
+
+    @Autowired
+    private ICategoryMapper categoryMapper;
+
+    @RequestMapping(value = "/category")
+    public ModelAndView toAssortment() {
+        ModelAndView modelAndView = new ModelAndView();
+        List<Category> category = categoryMapper.quertAllCategory();
+        modelAndView.addObject("category", category);
+        modelAndView.setViewName("categroyManage");
+        return modelAndView;
+    }
 }

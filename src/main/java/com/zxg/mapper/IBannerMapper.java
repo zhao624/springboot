@@ -24,5 +24,11 @@ public interface IBannerMapper {
      */
     int updateBanner(Banner banner);
 
+    /**
+     * 添加轮播图
+     *
+     * @param banner
+     * @return
+     */
     int addBanner(Banner banner);
 }
