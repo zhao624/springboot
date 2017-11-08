@@ -2,7 +2,6 @@ package com.zxg;
 
 import com.zxg.bean.*;
 import com.zxg.mapper.IBannerMapper;
-import com.zxg.mapper.ICategoryMapper;
 import com.zxg.mapper.IContentMapper;
 import com.zxg.mapper.IUserMapper;
 import com.zxg.util.MD5PwdUtil;
@@ -21,17 +20,7 @@ import java.util.List;
 public class ZxgApplicationTests {
 
     @Autowired()
-    private IUserMapper userMapper;
-    @Autowired()
     private IBannerMapper bannerMapper;
-
-    @Test
-    public void getLogin() {
-        MD5PwdUtil md5 = new MD5PwdUtil();
-        User u = userMapper.getLogin("11111111111", md5.md5Base64("123456"));
-        System.out.printf(u.getUsername() + "================================>");
-    }
-
 
     @Test
     public void getBanner() {
@@ -96,7 +85,7 @@ public class ZxgApplicationTests {
     @Autowired()
     private IContentMapper contentMapper;
 
-    @Test
+    /*@Test
     public void getContents() {
         List<Content> list = contentMapper.findContent(new Params());
         System.out.println(list.get(0).getContent());
@@ -121,6 +110,50 @@ public class ZxgApplicationTests {
         int flag=contentMapper.addContent(content);
         System.out.println(flag);
     }
+    @Test
+    public void updateContent(){
+        Content content = new Content();
+        content.setId(22);
+        content.setTitle("Test");
+        content.setContent("test");
+        content.setImg("test");
+        content.setHits(20);
+        content.setLoves(10);
+        content.setStatus(1);
+        content.setUserId(1);
+        int flag=contentMapper.update(content);
+        System.out.println(flag);
+    }*/
 
+
+    @Autowired
+    private IUserMapper userMapper;
+
+    @Test
+    public void getLogin() {
+        User u = userMapper.getLogin("11111111111", MD5PwdUtil.md5Base64("123456"));
+        System.out.printf(u.getUsername() + "================================>");
+    }
+    @Test
+    public void addUser(){
+        User user = new User();
+        user.setUsername("zhaoxugui");
+        user.setAccount("17673163010");
+        user.setPassword(MD5PwdUtil.md5Base64("123456"));
+        user.setActive(1);
+        int flag = userMapper.addUser(user);
+        System.out.println(flag);
+    }
+    @Test
+    public void updateUser(){
+        User user = new User();
+        user.setUsername("zhaoxugui");
+        user.setAccount("17673163010");
+        user.setPassword(MD5PwdUtil.md5Base64("123456"));
+        user.setActive(0);
+        user.setId(9);
+        int flag = userMapper.update(user);
+        System.out.println(flag);
+    }
 
 }
