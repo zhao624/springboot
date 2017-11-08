@@ -40,4 +40,30 @@
 		WHERE
 			id = #{id}
 	</update>
+    <insert id="addContent" parameterType="content">
+        INSERT INTO mk_content (
+            title,
+            description,
+            content,
+            img,
+            create_time,
+            STATUS,
+            category_id,
+            hits,
+            loves,
+            user_id
+          )
+          VALUES (
+            #{title},
+            #{description},
+            #{content},
+            #{img},
+            NOW(),
+            #{status},
+            #{categoryId},
+            #{hits},
+            #{loves},
+            #{userId}
+        )
+    </insert>
 </mapper>
