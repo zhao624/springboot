@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zxg.mapper.IBannerMapper">
+
+    <select id="getBanner" resultType="banner">
+	SELECT
+	id,
+	img,
+	url,
+	title,
+	description,
+	create_time AS createTime,
+	user_id AS userId,
+	`status`
+FROM
+	mk_banner
+	</select>
+	<update id="updateBanner" parameterType="banner">
+	UPDATE mk_banner
+	SET img = #{img},url=#{url},title=#{title},description=#{description},`status`=#{status}
+	WHERE
+	id = #{id}
+	</update>
+
+	<insert id="addBanner" parameterType="banner" >
+	  INSERT INTO mk_banner (
+	img,
+	url,
+	title,
+	description,
+	create_time,
+	user_id,
+	`status`
+)
+VALUES
+	(
+		#{img},
+		#{url},
+		#{title},
+		#{description},
+		NOW(),
+		1,
+		1
+	)
+	</insert>
+</mapper>

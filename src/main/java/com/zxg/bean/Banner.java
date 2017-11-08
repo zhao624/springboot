@@ -2,84 +2,105 @@ package com.zxg.bean;
 
 import java.util.Date;
 
-/**
- * Banner<br/>
- * 创建人:HuJun<br/>
- * 时间：2017年11月3日-下午4:58:51 <br/>
- * @version 1.0.0<br/>
- */
 public class Banner {
-	private Integer id;//图片ID
-	private String img;//图片地址
-	private String url;//内容地址
-	private String title;//标题
-	private String description;//描述
-	private Date createTime;//创建时间
-	private Integer userId;//用户ID
-	private Integer status;//状态
+    private Integer id;//图片ID
+    private String img;//图片地址
+    private String url;//内容地址
+    private String title;//标题
+    private String description;//描述
+    private Date createTime;//创建时间
+    private Integer userId;//用户ID
+    private Integer status;//状态
 
-	public Integer getId() {
-		return id;
-	}
+    public Banner() {
+    }
 
-	public void setId(Integer id) {
-		this.id = id;
-	}
+    public Banner(Integer id, String img, String url, String title, String description, Date createTime, Integer userId, Integer status) {
+        this.id = id;
+        this.img = img;
+        this.url = url;
+        this.title = title;
+        this.description = description;
+        this.createTime = createTime;
+        this.userId = userId;
+        this.status = status;
+    }
 
-	public String getImg() {
-		return img;
-	}
+    public Integer getId() {
+        return id;
+    }
 
-	public void setImg(String img) {
-		this.img = img;
-	}
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
-	public String getUrl() {
-		return url;
-	}
+    public String getImg() {
+        return img;
+    }
 
-	public void setUrl(String url) {
-		this.url = url;
-	}
+    public void setImg(String img) {
+        this.img = img;
+    }
 
-	public String getTitle() {
-		return title;
-	}
+    public String getUrl() {
+        return url;
+    }
 
-	public void setTitle(String title) {
-		this.title = title;
-	}
+    public void setUrl(String url) {
+        this.url = url;
+    }
 
-	public String getDescription() {
-		return description;
-	}
+    public String getTitle() {
+        return title;
+    }
 
-	public void setDescription(String description) {
-		this.description = description;
-	}
+    public void setTitle(String title) {
+        this.title = title;
+    }
 
-	public Date getCreateTime() {
-		return createTime;
-	}
+    public String getDescription() {
+        return description;
+    }
 
-	public void setCreateTime(Date createTime) {
-		this.createTime = createTime;
-	}
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
-	public Integer getUserId() {
-		return userId;
-	}
+    public Date getCreateTime() {
+        return createTime;
+    }
 
-	public void setUserId(Integer userId) {
-		this.userId = userId;
-	}
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
 
-	public Integer getStatus() {
-		return status;
-	}
+    public Integer getUserId() {
+        return userId;
+    }
 
-	public void setStatus(Integer status) {
-		this.status = status;
-	}
+    public void setUserId(Integer userId) {
+        this.userId = userId;
+    }
 
+    public Integer getStatus() {
+        return status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
+    }
+
+    @Override
+    public String toString() {
+        return "Banner{" +
+                "id=" + id +
+                ", img='" + img + '\'' +
+                ", url='" + url + '\'' +
+                ", title='" + title + '\'' +
+                ", description='" + description + '\'' +
+                ", createTime=" + createTime +
+                ", userId=" + userId +
+                ", status=" + status +
+                '}';
+    }
 }
