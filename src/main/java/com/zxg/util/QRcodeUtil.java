@@ -102,7 +102,7 @@ public class QRcodeUtil {
         qrcode.setQrcodeErrorCorrect('M');  // 纠错级别（L 7%、M 15%、Q 25%、H 30%）和版本有关  
         qrcode.setQrcodeEncodeMode('B');
         qrcode.setQrcodeVersion(7);     // 设置Qrcode包的版本  
-        byte[] d = encodeddata.getBytes("GBK"); // 字符集  
+        byte[] d = encodeddata.getBytes("UTF-8"); // 字符集
         BufferedImage bi = new BufferedImage(139, 139, BufferedImage.TYPE_INT_RGB);
         // createGraphics   // 创建图层  
         Graphics2D g = bi.createGraphics();
@@ -148,7 +148,7 @@ public class QRcodeUtil {
         }
 
         try {
-            decodedData = new String(decoder.decode(new J2SEImage(image)), "GBK");
+            decodedData = new String(decoder.decode(new J2SEImage(image)), "UTF-8");
             System.out.println("Output Decoded Data is：" + decodedData);
         } catch (DecodingFailedException dfe) {
             System.out.println("Error: " + dfe.getMessage());
@@ -163,7 +163,7 @@ public class QRcodeUtil {
         File qrFile = new File(FilePath);
 
         // 二维码内容  
-        String encodeddata = "Hello X-rapido";
+        String encodeddata = "我是一只小小小鸟";
         try {
             QRcodeUtil.qrCodeEncode(encodeddata, qrFile);
         } catch (IOException e) {
