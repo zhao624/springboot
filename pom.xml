@@ -54,6 +54,12 @@
             <artifactId>spring-boot-devtools</artifactId>
             <optional>true</optional>
         </dependency>
+        <!--二维码依赖-->
+        <dependency>
+            <groupId>QRCode</groupId>
+            <artifactId>QRCode</artifactId>
+            <version>3.0</version>
+        </dependency>
     </dependencies>
 
     <build>

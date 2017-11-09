@@ -59,7 +59,8 @@
                                                         <td>${content.id}</td>
                                                         <td>${content.title}</td>
                                                         <td>${content.description}</td>
-                                                        <td><a href="javascript:void(0)" class="showdetails">查看详情</a></td>
+                                                        <td><a href="javascript:void(0)" class="showdetails">查看详情</a>
+                                                        </td>
                                                         <td>${content.img}</td>
                                                         <#if content.createTime??>
                                                             <td>${(content.createTime)?datetime}
@@ -90,11 +91,124 @@
                             <div class="tab-content">
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <table class="table table-hover">
-                                            <tr><td>文章ID</td><td><input type="text" disabled value="1"></td></tr>
+                                        <form class="form-horizontal">
+                                            <fieldset>
+                                                <div id="legend" class="">
+                                                    <legend class="">文章新增</legend>
+                                                </div>
+
+                                                <div class="control-group">
+
+                                                    <!-- Text input-->
+                                                    <label class="control-label" for="input01">ID:</label>
+                                                    <div class="controls">
+                                                        <input type="text" placeholder="" class="input-xlarge">
+                                                        <p class="help-block"></p>
+                                                    </div>
+                                                </div>
+                                                <div class="control-group">
+
+                                                    <!-- Text input-->
+                                                    <label class="control-label" for="input01">Ttle:</label>
+                                                    <div class="controls">
+                                                        <input type="text" placeholder="文章标题" class="input-xlarge">
+                                                        <p class="help-block"></p>
+                                                    </div>
+                                                </div>
 
 
-                                        </table>
+                                                <div class="control-group">
+
+                                                    <!-- Text input-->
+                                                    <label class="control-label" for="input01">Description：</label>
+                                                    <div class="controls">
+                                                        <input type="text" placeholder="描述" class="input-xlarge">
+                                                        <p class="help-block"></p>
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="control-group">
+
+                                                    <!-- Textarea -->
+                                                    <label class="control-label">具体内容：</label>
+                                                    <div class="controls">
+                                                        <div class="textarea">
+                                                            <textarea type="" class=""> </textarea>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="control-group">
+                                                    <label class="control-label">状态：</label>
+                                                    <div class="controls">
+                                                        <!-- Multiple Checkboxes -->
+                                                        <label class="checkbox">
+                                                            <input type="checkbox" value="发布">
+                                                            发布
+                                                        </label>
+                                                        <label class="checkbox">
+                                                            <input type="checkbox" value="不发布">
+                                                            不发布
+                                                        </label>
+                                                    </div>
+
+                                                </div>
+
+                                                <div class="control-group">
+                                                    <label class="control-label">分类Id:</label>
+
+                                                    <!-- Multiple Checkboxes -->
+                                                    <div class="controls">
+                                                        <!-- Inline Checkboxes -->
+                                                        <label class="checkbox inline">
+                                                            <input type="checkbox" value="1">
+                                                            1
+                                                        </label>
+                                                        <label class="checkbox inline">
+                                                            <input type="checkbox" value="2">
+                                                            2
+                                                        </label>
+                                                        <label class="checkbox inline">
+                                                            <input type="checkbox" value="3">
+                                                            3
+                                                        </label>
+                                                    </div>
+
+                                                </div>
+
+                                                <div class="control-group">
+
+                                                    <!-- Text input-->
+                                                    <label class="control-label" for="input01">喜爱数:</label>
+                                                    <div class="controls">
+                                                        <input type="text" placeholder="" class="input-xlarge">
+                                                        <p class="help-block"></p>
+                                                    </div>
+                                                </div>
+                                                <div class="control-group">
+
+                                                    <!-- Text input-->
+                                                    <label class="control-label" for="input01">点赞数:</label>
+                                                    <div class="controls">
+                                                        <input type="text" placeholder="" class="input-xlarge">
+                                                        <p class="help-block"></p>
+                                                    </div>
+                                                </div>
+                                                <div class="control-group">
+                                                    <label class="control-label"></label>
+
+                                                    <!-- Button -->
+                                                    <div class="controls">
+                                                        <button class="btn btn-success">提交</button>
+                                                    </div>
+                                                </div>
+
+
+                                            </fieldset>
+                                        </form>
+
+
                                     </div>
                                 </div>
                             </div>
