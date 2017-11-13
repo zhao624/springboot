@@ -1,54 +1,81 @@
 <div class="site-menubar">
-			<div class="site-menubar-head text-center">
-				<a class="navbar-avatar" href="">
+    <div class="site-menubar-head text-center">
+        <a class="navbar-avatar" href="">
 					<span class="avatar avatar-online">
-					${session_user.username}
+					${(session_user.username)!}
 				</span>
-				</a>
-			</div>
-			<div class="site-menubar-body">
-				<div>
-					<div>
-						<ul class="site-menu">
-							<li class="site-menu-item">
-								<a href="${basePath}/admin/content" title="内容管理">
-									<i class="iconfont icon-neirongguanli"></i>
-								</a>
-							</li>	
-							<li class="site-menu-item active">
-								<a href="${basePath}/admin/comment" title="评论管理">
-									<i class="iconfont icon-pinglunguanli"></i>
-								</a>
-							</li>
-							<li class="site-menu-item ">
-								<a href="${basePath}/admin/category" title="分类管理">
-									<i class="iconfont icon-shangchengxitongtubiaozitihuayuanwenjian88"></i>
-								</a>
-							</li>
-							<li class="site-menu-item">
-								<a href="${basePath}/admin/banner" title="轮播图管理">
-									<i class="iconfont icon-lunbotuguanli"></i>
-								</a>
-							</li>
-							<li class="site-menu-item">
-								<a href="${basePath}/admin/user" title="好友管理">
-									<i class="iconfont icon-yonghuguanli"></i>
-								</a>
-							</li>
-						</ul>
-						<ul class="site-menu site-menu-bottom padding-bottom-20">
-							<li class="site-menu-item ">
-								<a href="${basePath}/admin/user" title="账户设置">
-									<i class="iconfont icon-1"></i>
-								</a>
-							</li>
-							<li class="site-menu-item">
-								<a href="javascript:void(0);" onclick="mkLogin.logout()" title="退出">
-							<i class="iconfont icon-Logout"></i>
-						</a>
-					</li>
-				</ul>
-			</div>
-		</div>
-	</div>
+        </a>
+    </div>
+    <div class="site-menubar-body">
+        <div>
+            <div>
+                <ul class="site-menu">
+                    <li class="site-menu-item">
+                        <a href="${basePath}/admin/content" title="内容管理">
+                            <i class="iconfont icon-neirongguanli"></i>
+                        </a>
+                    </li>
+                    <li class="site-menu-item active">
+                        <a href="${basePath}/admin/comment" title="评论管理">
+                            <i class="iconfont icon-pinglunguanli"></i>
+                        </a>
+                    </li>
+                    <li class="site-menu-item ">
+                        <a href="${basePath}/admin/category" title="分类管理">
+                            <i class="iconfont icon-shangchengxitongtubiaozitihuayuanwenjian88"></i>
+                        </a>
+                    </li>
+                    <li class="site-menu-item">
+                        <a href="${basePath}/admin/banner" title="轮播图管理">
+                            <i class="iconfont icon-lunbotuguanli"></i>
+                        </a>
+                    </li>
+                    <li class="site-menu-item">
+                        <a href="${basePath}/admin/user" title="好友管理">
+                            <i class="iconfont icon-yonghuguanli"></i>
+                        </a>
+                    </li>
+                    <!--作业卡片-->
+                    <li class="site-menu-item">
+                        <a href="${basePath}/exam/cookie" title="好友管理">
+                            <i class="iconfont icon-yonghuguanli"></i>
+                        </a>
+                    </li>
+                    <li class="site-menu-item">
+                        <a href="${basePath}/exam/user" title="好友管理">
+                            <i class="iconfont icon-yonghuguanli"></i>
+                        </a>
+                    </li>
+                    <li class="site-menu-item">
+                        <a href="${basePath}/exam/user" title="好友管理">
+                            <i class="iconfont icon-yonghuguanli"></i>
+                        </a>
+                    </li>
+                    <li class="site-menu-item">
+                        <a href="${basePath}/exam/user" title="好友管理">
+                            <i class="iconfont icon-yonghuguanli"></i>
+                        </a>
+                    </li>
+                    <li class="site-menu-item">
+                        <a href="${basePath}/exam/user" title="好友管理">
+                            <i class="iconfont icon-yonghuguanli"></i>
+                        </a>
+                    </li>
+
+                </ul>
+                <ul class="site-menu site-menu-bottom padding-bottom-20">
+                    <li class="site-menu-item ">
+                        <a href="${basePath}/admin/user" title="账户设置">
+                            <i class="iconfont icon-1"></i>
+                        </a>
+                    </li>
+                    <li class="site-menu-item">
+                        <a href="javascript:void(0);" onclick="mkLogin.logout()" title="退出">
+                            <i class="iconfont icon-Logout"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
 </div>
