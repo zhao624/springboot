@@ -99,7 +99,7 @@ function removeSession(key,flag){
         <pre>
          代码放到此处
     $(function () {
-        $("#reg").on("click", function () {
+        $("form").on("keyup", function () {
             //获取所有值
             var username = $(".username").val();
             var flag = $('input:checkbox:checked').val();
@@ -142,7 +142,7 @@ function removeSession(key,flag){
 </body>
 <script>
     $(function () {
-        $("#reg").on("click", function () {
+        $("form").on("keyup", function () {
             //获取所有值
             var username = $(".username").val();
             var flag = $('input:checkbox:checked').val();
