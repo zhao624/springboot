@@ -3,25 +3,183 @@
 <head>
     <title>学习</title>
     <#include "/public/common.html">
-</head>
+        </head>
 
 
-<body class="site-menubar-fold site-menubar-keep" style="background:#ccc;">
+<body class="site-menubar-fold site-menubar-keep" style="background:#ccc;" onload="loadMessage()">
 <!-- 引入左边的样式及其图标 -->
 <#include "/public/left.html">
     <div style="background:#fff;padding:30px;margin:20px 0 0 90px;color:#333;">
-
-        <h1>Cookie的学习</h1>
+        <h1>Cookie和Storage的学习</h1>
         <hr/>
-        <p>介绍：</p>
-        <p>web开发者都会用cookie在客户端存储数据，cookie可用于程序间传递少量的数据，对于web应用....</p>
-        <p>尽管如此，cookie的大小限制在4kb左右</p>
-        <p>带宽控制，只要有涉及cookie的</p>
-        <p></p>
-        <p></p>
-        <p></p>
-        <p></p>
+        <p>
+            描述：web开发者都会用cookie在客户端存储数据，cookie可用于在程序间传递少量的数据，对于web应用来说，它是一个服务器和客户端直接回传文本值的机制，服务器可以根据cookie来追踪用户在不同页面的访问信息。</p>
+        <p>尽管如此，cookie仍然才有很多不如人意的地方：</p>
+        <p>1：大小限制，cookie的大小限制在4kb作用，</p>
+        <p>2：带宽限制，只要有涉及cookie的骑过去，cookie数据都会和服务器和浏览器直接来回传送，</p>
+        <p>3：安全风险，由于cookie会频繁在网络中传输，如果没有加密，有安全风险</p>
+        <p>4：操作复杂,在javascript中操作cookie数据是比较复杂的。在服务器段可以很方便的操作</p>
+        <h1>Html5里面的storage</h1>
+        <p>1：存储容量可以达到5mb-10mb</p>
+        <p>2：零带宽</p>
+        <p>3：编程接口也比较简单，学习成本低</p>
+        <h1>---Jsp/Servlet数据存储的作用域</h1>
+        <p>存储数据方法：setItem(key,value)</p>
+        <p>获取数据方法：getItem(key)</p>
+        <p>删除数据方法：removeItem(key)</p>
+        <div>
+            <h3>====服务短的数据存储</h3>
+            <ul>
+                <li>application--ServletContext applicaton = request.getServletContext()---web容器关闭，数据回收</li>
+                <li>session===request.getSession()---浏览器关闭，数据回收</li>
+                <li>request---请求响应之后数据回收</li>
+                <li>pageContext----JSP页面</li>
+            </ul>
+            <p>存储数据方法：setAttribute(key,value)</p>
+            <p>获取数据方法：getAttribute(key)</p>
+            <p>删除数据方法：removeAttribute(key)</p>
 
+            <p>清空方法：clear()</p>
+            <p>条目个数：.length</p>
+            <p>获取 key的名字：key(index)</p>
+
+
+            <h3>localStorage的生命周期：卸载浏览器、clear，杀毒软件清除痕迹，removeItem(key),</h3>
+            <h3>sessionStorage的生命周期：浏览器关闭</h3>
+            <h3></h3>
+            <h4 style="color:red">注意点：stroage，ie678不支持!</h4>
+            <pre>
+                //设置缓存
+function setSession(key,value,flag){
+	var storage = flag?window.sessionStorage:window.localStorage;
+	if(storage){
+		storage.setItem("mk_"+key,value);
+	}else{
+		//cookie
+	}
+}
+
+//获取缓存
+function getSession(key,flag){
+	var storage = flag?window.sessionStorage:window.localStorage;
+	localStorage.getItem("mk_"+key);
+}
+
+//删除缓存
+function removeSession(key,flag){
+	var storage = flag?window.sessionStorage:window.localStorage;
+	localStorage.removeItem("mk_"+key);
+}
+            </pre>
+        </div>
+
+        <h1>模拟qq空间，微博内容记录</h1>
+        <div>
+            <textarea style="width:640px;height:80px;" id="content"></textarea>
+            <p><input type="button" value="发表心情" id="send"/></p>
+        </div>
+        <ul>
+            <li>第一步：引入jquery.js</li>
+            <li>第二步:给textarea取一个id="content",给绑定键盘事件：onkeydown,onkeyup</li>
+            <li>第三步: 把输入的内容，存储到:localStorage.setItem("key","textarea的内容")</li>
+        </ul>
+        <hr/>
+        <h1>作业</h1>
+        <form action="">
+            <p>用户：<input type="text" class="username"/></p>
+            <p>密码：<input type="password" class="password"/></p>
+            <p>性别：
+                <label><input type="radio" value="1" name="male"/>男</label>
+                <label><input type="radio" value="0" name="male"/>女</label>
+            </p>
+            <p><label><input type="checkbox" value="1"/>记住密码</label></p>
+            <p><input type="button" id="reg" value="注册"/></p>
+        </form>
+
+        <pre>
+         代码放到此处
+    $(function () {
+        $("#reg").on("click", function () {
+            //获取所有值
+            var username = $(".username").val();
+            var flag = $('input:checkbox:checked').val();
+            if (flag == 1) {
+                var password = $(".password").val();
+            } else {
+                var password = null;
+            }
+            var sex = $('input:radio:checked').val();
+            var loginmessage = username + ',' + password + ',' + sex + ',' + flag;
+            localStorage.setItem("login_message", loginmessage);
+        })
+    })
+
+    function loadMessage() {
+        var message = localStorage.getItem("login_message");
+        if (message == null) {
+            return;
+        } else {
+            //将至放置到表单
+            var arr = message.split(',');
+            $(".username").val(arr[0]);
+            if (arr[1] != 'null') {
+                $(".password").val(arr[1]);
+            } else {
+                $(".password").val();
+            }
+            if (arr[2] == 1) {
+                $("input:radio").eq(0).attr("checked", "checked");
+            } else if (arr[2] == 0) {
+                $("input:radio").eq(1).attr("checked", "checked");
+            }
+            if (arr[3] == 1) {
+                $('input:checkbox').eq(0).attr("checked", "checked");
+            }
+        }
+    }
+		</pre>
     </div>
 </body>
+<script>
+    $(function () {
+        $("#reg").on("click", function () {
+            //获取所有值
+            var username = $(".username").val();
+            var flag = $('input:checkbox:checked').val();
+            if (flag == 1) {
+                var password = $(".password").val();
+            } else {
+                var password = null;
+            }
+            var sex = $('input:radio:checked').val();
+            var loginmessage = username + ',' + password + ',' + sex + ',' + flag;
+            localStorage.setItem("login_message", loginmessage);
+        })
+    })
+
+    function loadMessage() {
+        var message = localStorage.getItem("login_message");
+        if (message == null) {
+            return;
+        } else {
+            //将至放置到表单
+            var arr = message.split(',');
+            $(".username").val(arr[0]);
+            if (arr[1] != 'null') {
+                $(".password").val(arr[1]);
+            } else {
+                $(".password").val();
+            }
+            if (arr[2] == 1) {
+                $("input:radio").eq(0).attr("checked", "checked");
+            } else if (arr[2] == 0) {
+                $("input:radio").eq(1).attr("checked", "checked");
+            }
+            if (arr[3] == 1) {
+                $('input:checkbox').eq(0).attr("checked", "checked");
+            }
+        }
+    }
+
+</script>
 </html>
