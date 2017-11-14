@@ -49,27 +49,27 @@
             <h3></h3>
             <h4 style="color:red">注意点：stroage，ie678不支持!</h4>
             <pre>
-                //设置缓存
-function setSession(key,value,flag){
-	var storage = flag?window.sessionStorage:window.localStorage;
-	if(storage){
-		storage.setItem("mk_"+key,value);
-	}else{
-		//cookie
-	}
-}
+            //设置缓存
+            function setSession(key,value,flag){
+                var storage = flag?window.sessionStorage:window.localStorage;
+                if(storage){
+                    storage.setItem("mk_"+key,value);
+                }else{
+                    //cookie
+                }
+            }
 
-//获取缓存
-function getSession(key,flag){
-	var storage = flag?window.sessionStorage:window.localStorage;
-	localStorage.getItem("mk_"+key);
-}
+            //获取缓存
+            function getSession(key,flag){
+                var storage = flag?window.sessionStorage:window.localStorage;
+                localStorage.getItem("mk_"+key);
+            }
 
-//删除缓存
-function removeSession(key,flag){
-	var storage = flag?window.sessionStorage:window.localStorage;
-	localStorage.removeItem("mk_"+key);
-}
+            //删除缓存
+            function removeSession(key,flag){
+                var storage = flag?window.sessionStorage:window.localStorage;
+                localStorage.removeItem("mk_"+key);
+            }
             </pre>
         </div>
 
