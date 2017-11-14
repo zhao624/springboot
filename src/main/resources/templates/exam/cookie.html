@@ -145,6 +145,7 @@ function removeSession(key,flag){
         $("form").on("keyup", function () {
             //获取所有值
             var username = $(".username").val();
+
             var flag = $('input:checkbox:checked').val();
             if (flag == 1) {
                 var password = $(".password").val();
