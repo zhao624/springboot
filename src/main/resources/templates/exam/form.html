@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <#include "/public/common.html"/>
+    <style>
+        .hljs {
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body class="site-menubar-fold site-menubar-keep" style="background:#ccc;">
+<title>Title</title>
+<#include "/public/left.html">
+    <div style="background:#fff;padding:30px;margin:20px 0 0 90px;color:#333;">
+        <h1>jquery获得元素</h1>
+        <form action="javascript:void(0)">
+            <label>用户名：<input type="text" name="username" id="username"></label><br/>
+            <label>密码：<input type="password" name="password" id="password"></label><br/>
+            性别:<label><input type="radio" name="male" value="1" >男</label>
+            <label><input type="radio" name="male" value="0" >女</label><br>
+            <span>爱好：</span>
+            <label><input type="checkbox" name="hobby" value="reade book" id="reder">看书</label>
+            <label><input type="checkbox" name="hobby" value="write" id="write">练字</label>
+            <label><input type="checkbox" name="hobby" value="internet" id="internet">上网</label>
+            <label><input type="checkbox" name="hobby" value="paly gameing" id="play">打豆豆</label>
+            <button id="btn1">全选</button>
+            <button id="btn2">反选</button><br>
+            <select name="choose">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+            </select><br>
+            <input type="hidden" id="information" name="information" value="Test">
+            <textarea name="textarea" id="textarea" cols="30" rows="10">
+            </textarea>
+        </form>
+        <button class="test">测试</button>
+        <pre>
+            <code class="hljs">
+    $(function () {
+        function getById() {
+            //1.jequery根据ID获取
+            var username = $("#username").val();
+            var password = $('#password').val();
+            var sex=$("input:radio:checked").val();
+            var hobby = $("input[name='hobby']:checked").val();
+            var selected = $("select option:selected").val();
+            var hidden = $("input:hidden").val();
+            var textarea = $("#textarea").val();
+            console.log(username+'=='+password+'=='+sex+'=='+hobby+'='+selected+'=='+hidden+'=='+textarea);
+        }
+        function getByName() {
+            var username = $("input[name='username']").val();
+            var password = $("input[name='password']").val();
+            var sex = $("input[name='male']:checked").val();
+            //2.jequery根据name拿值
+            var hobby = $("input[name='hobby']");
+            for(var i=0;i<hobby.length;i++){
+               console.log(hobby.eq(i).val());
+            }
+            var selected = $("select[name='choose'] option:selected").val();
+            var hidden = $("input[name='information']").val();
+            var textarea = $("textarea[name='textarea']").val();
+            console.log(username+'=='+password+'=='+sex+'=='+selected+'=='+hidden+'=='+textarea);
+        }
+
+        //全选
+        $("#btn1").click(function(){
+            $("input[name='hobby']").prop("checked",'true');
+        })
+        //反选
+        $("#btn2").click(function(){
+            var $hobby=$("input[name='hobby']");
+            for(var i=0;i<$hobby.length;i++){
+                if($hobby.eq(i).prop('checked')){
+                    $hobby.eq(i).removeProp('checked');
+                }else{
+                    $hobby.eq(i).prop('checked', true);
+                }
+            }
+        })
+        function getbyjs() {
+            var username=document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+            var sex=document.getElementsByName("male");
+            for(var i=0; i<sex.length;i++) {
+                if(sex[i].checked)    {
+                    console.log(sex[i].value);
+                }
+            }
+            var hobby=document.getElementsByName("hobby");
+            for(var j=0; j<hobby.length;j++) {
+                if(hobby[j].checked)    {
+                    console.log(hobby[j].value);
+                }
+            }
+            //处理多选的值
+            var selected = document.getElementsByTagName("select");
+            var index = selected.selectedIndex;
+            var albumid = selected.options[index].value;
+            console.log(albumid);
+            var hidden = document.getElementById("information").value;
+            var textarea = document.getElementById("textarea").value;
+            console.log(username + '==' + password + '==' + '==' + hidden + '==' + textarea);
+
+        }
+        $(".test").on('click',function () {
+            getByName();
+        })
+    })
+            </code>
+        </pre>
+    </div>
+</body>
+<link rel="stylesheet" href="${resPath}/js/high/monokai-sublime.css">
+<script src="${resPath}/js/high/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<script>
+    $(function () {
+        function getById() {
+            //1.jequery根据ID获取
+            var username = $("#username").val();
+            var password = $('#password').val();
+            var sex=$("input:radio:checked").val();
+            var hobby = $("input[name='hobby']:checked").val();
+            var selected = $("select option:selected").val();
+            var hidden = $("input:hidden").val();
+            var textarea = $("#textarea").val();
+            console.log(username+'=='+password+'=='+sex+'=='+hobby+'='+selected+'=='+hidden+'=='+textarea);
+        }
+        function getByName() {
+            var username = $("input[name='username']").val();
+            var password = $("input[name='password']").val();
+            var sex = $("input[name='male']:checked").val();
+            //2.jequery根据name拿值
+            var hobby = $("input[name='hobby']");
+            for(var i=0;i<hobby.length;i++){
+               console.log(hobby.eq(i).val());
+            }
+            var selected = $("select[name='choose'] option:selected").val();
+            var hidden = $("input[name='information']").val();
+            var textarea = $("textarea[name='textarea']").val();
+            console.log(username+'=='+password+'=='+sex+'=='+selected+'=='+hidden+'=='+textarea);
+        }
+
+        //全选
+        $("#btn1").click(function(){
+            $("input[name='hobby']").prop("checked",'true');
+        })
+        //反选
+        $("#btn2").click(function(){
+            var $hobby=$("input[name='hobby']");
+            for(var i=0;i<$hobby.length;i++){
+                if($hobby.eq(i).prop('checked')){
+                    $hobby.eq(i).removeProp('checked');
+                }else{
+                    $hobby.eq(i).prop('checked', true);
+                }
+            }
+        })
+        function getbyjs() {
+            var username=document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+            var sex=document.getElementsByName("male");
+            for(var i=0; i<sex.length;i++) {
+                if(sex[i].checked)    {
+                    console.log(sex[i].value);
+                }
+            }
+            var hobby=document.getElementsByName("hobby");
+            for(var j=0; j<hobby.length;j++) {
+                if(hobby[j].checked)    {
+                    console.log(hobby[j].value);
+                }
+            }
+            //处理多选的值
+            var selected = document.getElementsByTagName("select");
+            var index = selected.selectedIndex;
+            var albumid = selected.options[index].value;
+            console.log(albumid);
+            var hidden = document.getElementById("information").value;
+            var textarea = document.getElementById("textarea").value;
+            console.log(username + '==' + password + '==' + '==' + hidden + '==' + textarea);
+
+        }
+        $(".test").on('click',function () {
+            getByName();
+        })
+    })
+
+</script>
+
+</html>

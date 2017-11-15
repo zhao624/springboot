@@ -3,8 +3,7 @@
 <head>
     <title>学习</title>
     <#include "/public/common.html">
-        </head>
-
+</head>
 
 <body class="site-menubar-fold site-menubar-keep" style="background:#ccc;" onload="loadMessage()">
 <!-- 引入左边的样式及其图标 -->
@@ -138,11 +137,24 @@
         }
     }
 		</pre>
+        <pre>
+            <xmp><link rel="stylesheet" type="text/css" href="${resPath}/icofont/iconfont1.css"/>
+                <link rel="stylesheet" href="${resPath}/css/center.css"/>
+                <link rel="stylesheet" href="${resPath}/css/styles.css"/>
+                <link rel="stylesheet" href="${resPath}/css/animate.css"/>
+                <link rel="stylesheet" href="${resPath}/css/bootstrap-responsive.min.css" type="text/css">
+                <link rel="stylesheet" href="${resPath}/css/bootstrap.min.css" type="text/css">
+                <script>var basePath = "${basePath}";</script>
+                <script src="${resPath}/js/jquery-1.11.2.min.js"></script>
+                z<script src="${resPath}/js/bootstrap.min.js"></script>
+                <script src="${resPath}/js/admin.js"></script>
+        </xmp>
+    </pre>
     </div>
 </body>
 <script>
     $(function () {
-        $("form").on("keyup", function () {
+        $("form").on("change", function () {
             //获取所有值
             var username = $(".username").val();
 
