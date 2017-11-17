@@ -38,7 +38,7 @@
         <button class="test">测试</button>
         <pre>
             <code class="hljs">
-    $(function () {
+$(function () {
         function getById() {
             //1.jequery根据ID获取
             var username = $("#username").val();
@@ -56,7 +56,7 @@
             var sex = $("input[name='male']:checked").val();
             //2.jequery根据name拿值
             var hobby = $("input[name='hobby']");
-            for(var i=0;i<hobby.length;i++){
+            for(var i=0;i&lt;hobby.length;i++){
                console.log(hobby.eq(i).val());
             }
             var selected = $("select[name='choose'] option:selected").val();
@@ -72,7 +72,7 @@
         //反选
         $("#btn2").click(function(){
             var $hobby=$("input[name='hobby']");
-            for(var i=0;i<$hobby.length;i++){
+            for(var i=0;i	&lt;$hobby.length;i++){
                 if($hobby.eq(i).prop('checked')){
                     $hobby.eq(i).removeProp('checked');
                 }else{
@@ -84,13 +84,13 @@
             var username=document.getElementById("username").value;
             var password = document.getElementById("password").value;
             var sex=document.getElementsByName("male");
-            for(var i=0; i<sex.length;i++) {
+            for(var i=0; i&lt;sex.length;i++) {
                 if(sex[i].checked)    {
                     console.log(sex[i].value);
                 }
             }
             var hobby=document.getElementsByName("hobby");
-            for(var j=0; j<hobby.length;j++) {
+            for(var j=0; j&lt;hobby.length;j++) {
                 if(hobby[j].checked)    {
                     console.log(hobby[j].value);
                 }

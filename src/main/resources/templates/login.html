@@ -1,5 +1,5 @@
 ﻿<!doctype html>
-<html lang="zh">
+<html lang="zh" xmlns="http://www.w3.org/1999/html">
 <head>
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -12,10 +12,10 @@
 		<div class="wrapper">
 			<div class="container">
 				<div class="form">
-					<input type="text" id="account" placeholder="账号"
-						value="11111111111"> <input type="password" id="password"
-						placeholder="密码" value="123456">
-					<button id="login-button">登陆</button>
+					<input type="text" class="input" id="account" placeholder="账号" value="11111111111">
+					<input type="password" class="input" id="password" placeholder="密码" value="123456">
+					<label><input type="checkbox" name="remeber" value="1">7天免登陆</label><br>
+					<button class="button" id="login-button">登陆</button>
 				</div>
 			</div>
 			<ul class="bg-bubbles">
@@ -39,6 +39,10 @@
 			$("#login-button").on("click", function() {
 				var account = $("#account").val();
 				var password = $("#password").val();
+
+                var flag = $("input[name='remeber']:checked").val()||0;
+                alert(flag);
+                return;
 				//ajax
 				var params = {
 					"account" : account,
