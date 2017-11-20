@@ -15,7 +15,6 @@ import org.springframework.web.servlet.ModelAndView;
 @RequestMapping("/admin")
 public class UserManagerController {
 	
-	
 	@Autowired
 	private IUserMapper usermapper;
 
@@ -27,7 +26,9 @@ public class UserManagerController {
 	public ModelAndView usermanager() {
 		ModelAndView modelAndView=new ModelAndView();
 		List<User> user = usermapper.getUser();
+        int sumCount=usermapper.getUsersCount(new Params());
 		modelAndView.addObject("userList",user);
+        modelAndView.addObject("sumCount", sumCount);
 		modelAndView.setViewName("/user/userManage");
 		return modelAndView;
 
@@ -37,7 +38,9 @@ public class UserManagerController {
     public ModelAndView selectByKeyWord(Params params){
         ModelAndView modelAndView = new ModelAndView();
         List<User> userList = usermapper.getUsersByKeyword(params);
+        int sumCount=usermapper.getUsersCount(params);
         modelAndView.addObject("userList",userList);
+        modelAndView.addObject("sumCount", sumCount);
         modelAndView.setViewName("/user/template");
         return modelAndView;
     }

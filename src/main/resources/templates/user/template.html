@@ -1,6 +1,6 @@
 <#list userList as user>
     <#if user??>
-        <tr>
+        <tr data-sum="${sumCount}">
             <#if user.id??>
                 <td>
                     ${user.id}

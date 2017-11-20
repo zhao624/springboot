@@ -43,9 +43,17 @@ public interface IUserMapper {
 
     /**
      * 根据关键字检索用户
+     *
      * @param params
      * @return
      */
     List<User> getUsersByKeyword(Params params);
+
+	/**
+	 * 查询总数
+	 * @param params
+	 * @return
+	 */
+	int getUsersCount(Params params);
 
 }

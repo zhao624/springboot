@@ -1,8 +1,89 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>用户管理</title>
 	<#include "/public/common.html"/>
+	<title>用户管理</title>
+	<style>
+		/*分页相关*/
+		.mkPage {
+			font-size: 12px;
+			margin-top: 15px;
+		}
+
+		.mkPage a {
+			text-decoration: none;
+			border: solid 1px #ccc;
+			color: #999;
+		}
+
+		.mkPage a, .mkPage span {
+			display: block;
+			float: left;
+			padding: 0em 0.5em;
+			margin-right: 5px;
+			margin-bottom: 5px;
+			min-width: 1em;
+			text-align: center;
+			line-height: 32px;
+			height: 32px;
+			padding: 0 12px;
+		}
+
+		.mkPage .current {
+			background: #e5e5e5;
+			color: #999;
+			border: solid 1px #e5e5e5;
+		}
+
+		.mkPage .current.prev, .mkPage .current.next {
+			color: #999;
+			border: 1px solid #e5e5e5;
+			background: #fff;
+		}
+
+		.tm_psize_go {
+			margin-right: 4px;
+			float: left;
+			height: 34px;
+			line-height: 33px;
+			position: relative;
+			border: 1px solid #ccc;
+			color: #999
+		}
+
+		#tm_pagego {
+			height: 32px;
+			width: 30px;
+			float: left;
+			text-align: center;
+			border: 1px solid #ccc;
+			line-height: 22px;
+			color: #999
+		}
+
+		.sortdesc {
+			border-top: 5px solid;
+			width: 0px;
+			height: 0px;
+			display: inline-block;
+			vertical-align: middle;
+			border-right: 5px solid transparent;
+			border-left: 5px solid transparent;
+			margin-left: 5px;
+		}
+
+		.sortasc {
+			border-bottom: 5px solid;
+			width: 0px;
+			height: 0px;
+			display: inline-block;
+			vertical-align: middle;
+			border-right: 5px solid transparent;
+			border-left: 5px solid transparent;
+			margin-left: 5px;
+		}
+
+	</style>
 </head>
 <body class="site-menubar-fold site-menubar-keep">
 <#include "/public/left.html">
@@ -20,7 +101,8 @@
 								</a></li>
 							</ul>
 							<div class="input-group col-md-2" style="margin-top:0px positon:relative">
-								<input type="text" class="form-control" id="keyword" style="height: 30px" placeholder="请输入字段名" / >
+								<input type="text" class="form-control" id="keyword" style="height: 30px"
+									   placeholder="请输入字段名" / >
 								<span class="input-group-btn">
 								   <button class="btn btn-info btn-search">查找</button>
 								</span>
@@ -43,7 +125,7 @@
 											<tbody>
 											<#list userList as user>
 												<#if user??>
-													<tr>
+													<tr data-sum="${sumCount}">
 														<#if user.id??>
 															<td>
 																${user.id}
@@ -104,57 +186,83 @@
 							</div>
 
 
-		</div>
-		<script>
-			$(function () {
-			    /*搜索用户*/
-			    users.serachUsers();
-            })
-			var users= {
-                addUser: function () {
-
-                },
-                deleteUser: function () {
-
-                },
-                serachUsers: function () {
-                    $(".btn-search").on("click", function () {
-                        /*获取输入的值*/
-                        var inputvalue = $("#keyword").val();
-                        var params = {"keyword":inputvalue};
-                        $.ajax({
-                            type:"post",
-                            url:basePath+"/admin/selectByKeyword",
-                            data:params,
-                            beforeSend:function(){
-                                loading("正在查询中....", 1);
-                            },success:function (data) {
-                                $(".tab-content tbody").html(data);
-                            },error:function () {
-                                loading("error",1)
-                            }
-
-                        })
-                    })
-                },
-                nextzpage:function () {
-                    
-                }
-            }
-		</script>
-		<script>
-            $(function () {
-                loading("数据加载中....", 1);
-                $("#nav-tabs-solidlist").find("li").on("click", function () {
-                    $(this).addClass("active").siblings().removeClass("active");
-                });
-            });
-		</script>
-		<script>
-            $(function () {
-                $(".site-menu-item").removeClass("active");
-                $(".site-menu-item").eq(4).addClass("active");
-            })
-		</script>
+						</div>
+						<script src="${resPath}/js/page.js"></script>
+						<script>
+							$(function () {
+								users.init();
+							})
+							var users = {
+								mark:false,
+								pno:0,
+								psize:5,
+								init: function () {
+									users.load();
+									var sumCount = $("tbody tr").first().data("sum");
+									users.page(sumCount);
+								},
+								serachUser:function () {
+									users.pno = 0;
+									users.mark = true;
+									$("tbody").empty();
+									users.load(function (sumCount){
+										users.page(sumCount);
+									});
+								},
+								page:function (sumCount) {
+									//获取分页总数
+									$(".pagination").mkPage(sumCount,{
+										items_per_page:10,
+										num_display_entries:4,
+										num_edge_entries:3,
+										prev_text:"Prev",
+										next_text:"后一页",
+										showGo : true,
+										showSelect:true,
+										callback:function(pno,psize){//点击分页上的任何一个按钮都会进行这个函数
+											users.pno = pno;
+											//加载数据
+											users.load();
+										},
+									});
+								},
+								load:function () {
+									//参数
+									var pno = users.pno * users.psize;
+									var keyword = $("#keyword").val();
+									var params = {"keyword":keyword,"pno":pno,"psize":users.psize};
+									$.ajax({
+										type:"post",
+										url:basePath+"admin/selectByKeyword",
+										data:params,
+										success:function(data){
+											if(data!=""){
+												$("tbody").html(data);
+												var sumCount = $("tbody tr").eq(0).data("sum");
+												/* if(mkUser.mark){
+													mkUser.page(itemCount);
+													mkUser.mark = false;
+												} */
+												if(callback)callback(sumCount);
+											}
+										}
+									});
+								}
+							}
+						</script>
+						<script>
+							$(function () {
+								loading("数据加载中....", 1);
+								$("#nav-tabs-solidlist").find("li").on("click", function () {
+									$(this).addClass("active").siblings().removeClass("active");
+								});
+							});
+						</script>
+						<script>
+							$(function () {
+								$(".site-menu-item").removeClass("active");
+								$(".site-menu-item").eq(4).addClass("active");
+							})
+						</script>
 </body>
 </html>

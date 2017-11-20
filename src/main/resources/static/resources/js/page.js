@@ -1,6 +1,6 @@
 
  (function($){
-	
+ 	$(".mkloading").remove();
 	$.mkPageCalculator = function(maxentries, opts) {
 		this.maxentries = maxentries;
 		this.opts = opts;

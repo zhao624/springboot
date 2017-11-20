@@ -166,4 +166,8 @@ public class ZxgApplicationTests {
         }
     }
 
+    @Test
+    public void getUsersCount() {
+        System.out.println(userMapper.getUsersCount(new Params()));
+    }
 }

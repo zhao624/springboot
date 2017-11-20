@@ -8,16 +8,14 @@ import java.io.Serializable;
 public class Params implements Serializable {
     private Integer pno = 0;// 页数
     private Integer psize = 5;// 分页大小
-    private Integer pCount = 5;// 总页数
     private String keyword;//搜索关键字
 
     public Params() {
     }
 
-    public Params(Integer pno, Integer psize, Integer pCount, String keyword) {
+    public Params(Integer pno, Integer psize, String keyword) {
         this.pno = pno;
         this.psize = psize;
-        this.pCount = pCount;
         this.keyword = keyword;
     }
 
@@ -37,14 +35,6 @@ public class Params implements Serializable {
         this.psize = psize;
     }
 
-    public Integer getpCount() {
-        return pCount;
-    }
-
-    public void setpCount(Integer pCount) {
-        this.pCount = pCount;
-    }
-
     public String getKeyword() {
         return keyword;
     }
@@ -58,7 +48,6 @@ public class Params implements Serializable {
         return "Params{" +
                 "pno=" + pno +
                 ", psize=" + psize +
-                ", pCount=" + pCount +
                 ", keyword='" + keyword + '\'' +
                 '}';
     }

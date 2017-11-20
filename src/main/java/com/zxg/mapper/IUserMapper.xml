@@ -30,7 +30,7 @@
 			header_pic as headerPic
 		FROM
 		 mk_user
-		LIMIT 0 ,10
+		LIMIT 0 ,5
 	</select>
 
     <update id="update" parameterType="user">
@@ -78,6 +78,15 @@
 		 <trim prefix="WHERE" prefixOverrides="and|or">
              <if test="keyword!=null">username LIKE '%${keyword}%'</if>
          </trim>
-		LIMIT 0 ,10
+		LIMIT #{pno} ,#{psize}
+    </select>
+    <select id="getUsersCount" resultType="int" parameterType="params">
+        SELECT
+          count(1)
+        FROM
+          mk_user
+        <trim prefix="where" prefixOverrides="and|or">
+			<if test="keyword!=null">username LIKE '%${keyword}%'</if>
+		</trim>
     </select>
 </mapper>
