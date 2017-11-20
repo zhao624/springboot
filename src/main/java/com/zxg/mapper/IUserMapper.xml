@@ -63,5 +63,21 @@
             #{headerPic}
         )
     </insert>
-
+    <select id="getUsersByKeyword" parameterType="params" resultType="user">
+        SELECT
+			id,
+			username,
+			account,
+			create_time as createTime,
+			update_time as updateTime,
+			active,
+			password,
+			header_pic as headerPic
+		FROM
+		 mk_user
+		 <trim prefix="WHERE" prefixOverrides="and|or">
+             <if test="keyword!=null">username LIKE '%${keyword}%'</if>
+         </trim>
+		LIMIT 0 ,10
+    </select>
 </mapper>

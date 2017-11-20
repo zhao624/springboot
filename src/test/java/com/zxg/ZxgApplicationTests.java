@@ -155,5 +155,15 @@ public class ZxgApplicationTests {
         int flag = userMapper.update(user);
         System.out.println(flag);
     }
+    @Test
+    public void keyword(){
+        Params p = new Params();
+        p.setKeyword("ad");
+        List<User> users=userMapper.getUsersByKeyword(p);
+        for (User u: users
+                ) {
+            System.out.println(u.toString());
+        }
+    }
 
 }

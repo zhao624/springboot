@@ -2,6 +2,7 @@ package com.zxg.mapper;
 
 import java.util.List;
 
+import com.zxg.bean.Params;
 import org.apache.ibatis.annotations.Param;
 
 import com.zxg.bean.User;
@@ -39,5 +40,12 @@ public interface IUserMapper {
      * @return
      */
     int update(User user);
+
+    /**
+     * 根据关键字检索用户
+     * @param params
+     * @return
+     */
+    List<User> getUsersByKeyword(Params params);
 
 }

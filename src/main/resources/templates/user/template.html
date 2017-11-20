@@ -1,0 +1,55 @@
+<#list userList as user>
+    <#if user??>
+        <tr>
+            <#if user.id??>
+                <td>
+                    ${user.id}
+                </td>
+                <#else>
+                    <td>null</td>
+            </#if>
+            <#if user.username??>
+                <td>
+                    ${user.username}
+                </td>
+                <#else>
+                    <td>null</td>
+            </#if>
+            <#if user.account??>
+                <td>
+                    ${user.account}
+                </td>
+                <#else>
+                    <td>null</td>
+            </#if>
+            <#if user.createTime??>
+                <td>
+                    ${(user.createTime)?datetime}
+                </td>
+                <#else>
+                    <td>null</td>
+            </#if>
+            <#if user.updateTime??>
+                <td>
+                    ${(user.updateTime)?datetime}
+                </td>
+                <#else>
+                    <td>null</td>
+            </#if>
+            <#if user.active??>
+                <td>
+                    ${user.active}
+                </td>
+                <#else>
+                    <td>null</td>
+            </#if>
+            <#if user.headerPic??>
+                <td>
+                    ${user.headerPic}
+                </td>
+                <#else>
+                    <td>null</td>
+            </#if>
+        </tr>
+    </#if>
+</#list>

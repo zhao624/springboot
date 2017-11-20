@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>用户管理</title>
+	<#include "/public/common.html"/>
+</head>
+<body class="site-menubar-fold site-menubar-keep">
+<#include "/public/left.html">
+	<#--内容部分-->
+		<div class="page profile profile_index">
+			<div class="page-content">
+				<div class="row">
+					<div class="col-lg-12 col-md-12">
+						<div class="nav-tabs-horizontal nav-tabs-inverse ">
+							<ul class="nav nav-tabs nav-tabs-solid profile_nav"
+								id="nav-tabs-solidlist">
+								<li class="active"><a href="javascript:void(0);"
+													  class="padding-horizontal-30"> <i
+										class="iconfont icon-vip fz20 tp1"></i>用户查询
+								</a></li>
+							</ul>
+							<div class="input-group col-md-2" style="margin-top:0px positon:relative">
+								<input type="text" class="form-control" id="keyword" style="height: 30px" placeholder="请输入字段名" / >
+								<span class="input-group-btn">
+								   <button class="btn btn-info btn-search">查找</button>
+								</span>
+							</div>
+							<div class="tab-content">
+								<div class="row">
+									<div class="col-md-12">
+										<table class="table table-hover">
+											<thead>
+											<tr>
+												<th>用户编号</th>
+												<th>用户昵称</th>
+												<th>用户账号</th>
+												<th>创建时间</th>
+												<th>更新时间</th>
+												<th>状态</th>
+												<th>头像</th>
+											</tr>
+											</thead>
+											<tbody>
+											<#list userList as user>
+												<#if user??>
+													<tr>
+														<#if user.id??>
+															<td>
+																${user.id}
+															</td>
+															<#else>
+																<td>null</td>
+														</#if>
+														<#if user.username??>
+															<td>
+																${user.username}
+															</td>
+															<#else>
+																<td>null</td>
+														</#if>
+														<#if user.account??>
+															<td>
+																${user.account}
+															</td>
+															<#else>
+																<td>null</td>
+														</#if>
+														<#if user.createTime??>
+															<td>
+																${(user.createTime)?datetime}
+															</td>
+															<#else>
+																<td>null</td>
+														</#if>
+														<#if user.updateTime??>
+															<td>
+																${(user.updateTime)?datetime}
+															</td>
+															<#else>
+																<td>null</td>
+														</#if>
+														<#if user.active??>
+															<td>
+																${user.active}
+															</td>
+															<#else>
+																<td>null</td>
+														</#if>
+														<#if user.headerPic??>
+															<td>
+																${user.headerPic}
+															</td>
+															<#else>
+																<td>null</td>
+														</#if>
+													</tr>
+												</#if>
+											</#list>
+											</tbody>
+										</table>
+									</div>
+								</div>
+								<div class="pagination"></div>
+							</div>
+
+
+		</div>
+		<script>
+			$(function () {
+			    /*搜索用户*/
+			    users.serachUsers();
+            })
+			var users= {
+                addUser: function () {
+
+                },
+                deleteUser: function () {
+
+                },
+                serachUsers: function () {
+                    $(".btn-search").on("click", function () {
+                        /*获取输入的值*/
+                        var inputvalue = $("#keyword").val();
+                        var params = {"keyword":inputvalue};
+                        $.ajax({
+                            type:"post",
+                            url:basePath+"/admin/selectByKeyword",
+                            data:params,
+                            beforeSend:function(){
+                                loading("正在查询中....", 1);
+                            },success:function (data) {
+                                $(".tab-content tbody").html(data);
+                            },error:function () {
+                                loading("error",1)
+                            }
+
+                        })
+                    })
+                },
+                nextzpage:function () {
+                    
+                }
+            }
+		</script>
+		<script>
+            $(function () {
+                loading("数据加载中....", 1);
+                $("#nav-tabs-solidlist").find("li").on("click", function () {
+                    $(this).addClass("active").siblings().removeClass("active");
+                });
+            });
+		</script>
+		<script>
+            $(function () {
+                $(".site-menu-item").removeClass("active");
+                $(".site-menu-item").eq(4).addClass("active");
+            })
+		</script>
+</body>
+</html>
