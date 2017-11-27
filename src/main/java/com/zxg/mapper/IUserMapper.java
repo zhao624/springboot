@@ -56,4 +56,5 @@ public interface IUserMapper {
 	 */
 	int getUsersCount(Params params);
 
+	User getLoginByAccount(@Param("account")String account);
 }

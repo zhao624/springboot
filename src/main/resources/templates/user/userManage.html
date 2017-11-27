@@ -16,7 +16,7 @@
 		.sortasc{border-bottom:5px solid;width:0px;height:0px;display:inline-block;vertical-align:middle;border-right:5px solid transparent;border-left:5px solid transparent;margin-left:5px;}
 	</style>
 </head>
-<body class="site-menubar-fold site-menubar-keep">
+<body class="site-menubar-fold site-menubar-keep" data-itemcount="${sumCount}">
 <#include "/public/left.html">
 	<#--内容部分-->
 		<div class="page profile profile_index">
@@ -35,7 +35,7 @@
 								<input type="text" class="form-control" id="keyword" style="height: 30px"
 									   placeholder="请输入字段名" / >
 								<span class="input-group-btn">
-								   <button class="btn btn-info btn-search">查找</button>
+								   <button class="btn btn-info btn-search" onclick="mkUser.search()">查找</button>
 								</span>
 							</div>
 							<div class="tab-content">
@@ -54,66 +54,12 @@
 											</tr>
 											</thead>
 											<tbody class="tabboxes">
-												<#list userList as user>
-													<#if user??>
-														<tr data-sum="${sumCount}">
-															<#if user.id??>
-																<td>
-																	${user.id}
-																</td>
-																<#else>
-																	<td>null</td>
-															</#if>
-															<#if user.username??>
-																<td>
-																	${user.username}
-																</td>
-																<#else>
-																	<td>null</td>
-															</#if>
-															<#if user.account??>
-																<td>
-																	${user.account}
-																</td>
-																<#else>
-																	<td>null</td>
-															</#if>
-															<#if user.createTime??>
-																<td>
-																	${(user.createTime)?datetime}
-																</td>
-																<#else>
-																	<td>null</td>
-															</#if>
-															<#if user.updateTime??>
-																<td>
-																	${(user.updateTime)?datetime}
-																</td>
-																<#else>
-																	<td>null</td>
-															</#if>
-															<#if user.active??>
-																<td>
-																	${user.active}
-																</td>
-																<#else>
-																	<td>null</td>
-															</#if>
-															<#if user.headerPic??>
-																<td>
-																	${user.headerPic}
-																</td>
-																<#else>
-																	<td>null</td>
-															</#if>
-														</tr>
-													</#if>
-												</#list>
+
 											</tbody>
 										</table>
 									</div>
 								</div>
-								<div class="page"></div>
+								<div class="cpage"></div>
 							</div>
 
 
@@ -133,21 +79,21 @@
 									//加载数据
 									mkUser.load();
 									//分页初始化
-									var itemCount = $(".tabboxes tr").first().data("sum");
+									var itemCount = $("body").data("itemcount");
 									mkUser.page(itemCount);
 								},
 								//搜索查询
 								search:function(){
 									mkUser.pageNo = 0;
 									mkUser.mark = true;
-									$(".tabboxes").empty();
+									//$(".tabboxes").empty();
 									mkUser.load(function (itemcount){
 										mkUser.page(itemcount);
 									});
 								},
 								page:function(itemCount){
 									//获取分页总数
-									$(".page").mkPage(itemCount,{
+									$(".cpage").mkPage(itemCount,{
 										items_per_page:5,
 										num_display_entries:4,
 										num_edge_entries:3,

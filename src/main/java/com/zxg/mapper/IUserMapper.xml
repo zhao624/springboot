@@ -89,4 +89,15 @@
 			<if test="keyword!=null">username LIKE '%${keyword}%'</if>
 		</trim>
     </select>
+	<select id="getLoginByAccount"  resultType="user">
+		SELECT
+			id,
+			username,
+			account,
+			header_pic as headerPic
+		FROM
+			mk_user
+		WHERE
+			account = #{account}
+	</select>
 </mapper>

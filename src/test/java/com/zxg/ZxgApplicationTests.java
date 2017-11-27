@@ -170,4 +170,9 @@ public class ZxgApplicationTests {
     public void getUsersCount() {
         System.out.println(userMapper.getUsersCount(new Params()));
     }
+    @Test
+    public void getUser(){
+        User u = userMapper.getLoginByAccount("11111111111");
+        System.out.println(u.toString());
+    }
 }
