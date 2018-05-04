@@ -46,18 +46,23 @@ public class LoginController {
 	@RequestMapping(value = "/logined", method = RequestMethod.POST)
 	public String logined(User user, @RequestParam("rememberMe") String rememberMe, HttpSession session, HttpServletResponse response) {
 		User user2 = userMapper.getLogin(user.getAccount(), MD5PwdUtil.md5Base64(user.getPassword()));
-		if (user2 != null && rememberMe.equals("1")) {
-			Calendar calendar = Calendar.getInstance();
-			calendar.add(Calendar.MONTH, 1); // 一个月
-			long ctime = new Date().getTime();
-			// Cookie值
-			String cookieValue = EncryptionUtil.base64Encode(user2.getAccount() + ":" + ctime);
-			// 保存cookie
-			CookieUtils.addCookie(response, CookieConstantTable.RememberMe, cookieValue, null);
-			session.setAttribute("session_user", user2);
-			return "success";
+		if (user2 != null ) {
+		    if("1".equals(rememberMe)){
+               /* Calendar calendar = Calendar.getInstance();
+                calendar.add(Calendar.MONTH, 1);*/
+                long ctime = System.currentTimeMillis();
+                // Cookie值
+                String cookieValue = EncryptionUtil.base64Encode(user2.getAccount() + ":" + ctime);
+                // 保存cookie
+                CookieUtils.addCookie(response, CookieConstantTable.RememberMe, cookieValue, null);
+                session.setAttribute("session_user", user2);
+                return "success";
+            }else{
+                session.setAttribute("session_user", user2);
+                return "success";
+            }
 		} else {
-			return "fail";
+		    return "false";
 		}
 	}
 
