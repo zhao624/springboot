@@ -1,0 +1,71 @@
+2018-05-21 09:57:32,183 INFO (StartupInfoLogger.java:48)- Starting ZxgApplication on DESKTOP-KTOO70I with PID 25512 (D:\IdeaSpace\springboot\target\classes started by LianWei in D:\IdeaSpace\springboot)
+2018-05-21 09:57:32,186 DEBUG (StartupInfoLogger.java:51)- Running with Spring Boot v1.5.8.RELEASE, Spring v4.3.12.RELEASE
+2018-05-21 09:57:32,186 INFO (SpringApplication.java:593)- No active profile set, falling back to default profiles: default
+2018-05-21 09:59:17,844 INFO (StartupInfoLogger.java:48)- Starting ZxgApplication on DESKTOP-KTOO70I with PID 25364 (D:\IdeaSpace\springboot\target\classes started by LianWei in D:\IdeaSpace\springboot)
+2018-05-21 09:59:17,846 DEBUG (StartupInfoLogger.java:51)- Running with Spring Boot v1.5.8.RELEASE, Spring v4.3.12.RELEASE
+2018-05-21 09:59:17,847 INFO (SpringApplication.java:593)- No active profile set, falling back to default profiles: default
+2018-05-21 09:59:22,429 INFO (StartupInfoLogger.java:57)- Started ZxgApplication in 5.116 seconds (JVM running for 6.573)
+2018-05-21 10:00:12,547 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: SELECT id, username, account, header_pic as headerPic FROM mk_user WHERE account = ? AND `password` = ? 
+2018-05-21 10:00:12,567 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 11111111111(String), NFFyY09VbTZXYXUrVnVCWDhnK0lQZz09(String)
+2018-05-21 10:00:12,617 DEBUG (BaseJdbcLogger.java:159)- <==      Total: 1
+2018-05-21 10:00:14,692 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: SELECT id, title, description, content, img, create_time as createTime, update_time as updateTime, STATUS, category_id as categoryId, hits, loves, user_id as userId FROM mk_content limit ?,? 
+2018-05-21 10:00:14,694 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 0(Integer), 5(Integer)
+2018-05-21 10:00:14,875 DEBUG (BaseJdbcLogger.java:159)- <==      Total: 5
+2018-05-21 10:02:00,501 INFO (StartupInfoLogger.java:48)- Starting ZxgApplication on DESKTOP-KTOO70I with PID 19260 (D:\IdeaSpace\springboot\target\classes started by LianWei in D:\IdeaSpace\springboot)
+2018-05-21 10:02:00,514 DEBUG (StartupInfoLogger.java:51)- Running with Spring Boot v1.5.8.RELEASE, Spring v4.3.12.RELEASE
+2018-05-21 10:02:00,514 INFO (SpringApplication.java:593)- No active profile set, falling back to default profiles: default
+2018-05-21 10:02:04,986 INFO (StartupInfoLogger.java:57)- Started ZxgApplication in 5.01 seconds (JVM running for 6.281)
+2018-05-21 10:02:11,486 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: SELECT id, username, account, header_pic as headerPic FROM mk_user WHERE account = ? 
+2018-05-21 10:02:11,502 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 11111111111(String)
+2018-05-21 10:02:11,549 DEBUG (BaseJdbcLogger.java:159)- <==      Total: 1
+2018-05-21 10:02:11,560 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: SELECT id, title, description, content, img, create_time as createTime, update_time as updateTime, STATUS, category_id as categoryId, hits, loves, user_id as userId FROM mk_content limit ?,? 
+2018-05-21 10:02:11,560 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 0(Integer), 5(Integer)
+2018-05-21 10:02:11,721 DEBUG (BaseJdbcLogger.java:159)- <==      Total: 5
+2018-05-21 10:02:14,924 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: SELECT id, title, description, content, img, create_time as createTime, update_time as updateTime, STATUS, category_id as categoryId, hits, loves, user_id as userId FROM mk_content limit ?,? 
+2018-05-21 10:02:14,924 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 0(Integer), 5(Integer)
+2018-05-21 10:02:15,043 DEBUG (BaseJdbcLogger.java:159)- <==      Total: 5
+2018-05-21 10:03:40,616 INFO (StartupInfoLogger.java:48)- Starting ZxgApplication on DESKTOP-KTOO70I with PID 14024 (D:\IdeaSpace\springboot\target\classes started by LianWei in D:\IdeaSpace\springboot)
+2018-05-21 10:03:40,621 DEBUG (StartupInfoLogger.java:51)- Running with Spring Boot v1.5.8.RELEASE, Spring v4.3.12.RELEASE
+2018-05-21 10:03:40,621 INFO (SpringApplication.java:593)- No active profile set, falling back to default profiles: default
+2018-05-21 10:03:45,313 INFO (StartupInfoLogger.java:57)- Started ZxgApplication in 5.177 seconds (JVM running for 6.62)
+2018-05-21 10:03:52,215 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: SELECT id, username, account, header_pic as headerPic FROM mk_user WHERE account = ? 
+2018-05-21 10:03:52,232 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 11111111111(String)
+2018-05-21 10:03:52,284 DEBUG (BaseJdbcLogger.java:159)- <==      Total: 1
+2018-05-21 10:03:52,293 DEBUG (BaseJdbcLogger.java:159)- ==>  Preparing: SELECT id, title, description, content, img, create_time as createTime, update_time as updateTime, STATUS, category_id as categoryId, hits, loves, user_id as userId FROM mk_content limit ?,? 
+2018-05-21 10:03:52,294 DEBUG (BaseJdbcLogger.java:159)- ==> Parameters: 0(Integer), 5(Integer)
+2018-05-21 10:03:52,437 DEBUG (BaseJdbcLogger.java:159)- <==      Total: 5
+2018-05-21 10:05:04,490 INFO com.zxg.ZxgApplication (StartupInfoLogger.java:48)- Starting ZxgApplication on DESKTOP-KTOO70I with PID 27252 (D:\IdeaSpace\springboot\target\classes started by LianWei in D:\IdeaSpace\springboot)
+2018-05-21 10:05:04,496 DEBUG com.zxg.ZxgApplication (StartupInfoLogger.java:51)- Running with Spring Boot v1.5.8.RELEASE, Spring v4.3.12.RELEASE
+2018-05-21 10:05:04,496 INFO com.zxg.ZxgApplication (SpringApplication.java:593)- No active profile set, falling back to default profiles: default
+2018-05-21 10:05:08,671 INFO com.zxg.ZxgApplication (StartupInfoLogger.java:57)- Started ZxgApplication in 4.601 seconds (JVM running for 5.771)
+2018-05-21 10:06:22,074 DEBUG com.zxg.mapper.IUserMapper.getLoginByAccount (BaseJdbcLogger.java:159)- ==>  Preparing: SELECT id, username, account, header_pic as headerPic FROM mk_user WHERE account = ? 
+2018-05-21 10:06:22,090 DEBUG com.zxg.mapper.IUserMapper.getLoginByAccount (BaseJdbcLogger.java:159)- ==> Parameters: 11111111111(String)
+2018-05-21 10:06:22,139 DEBUG com.zxg.mapper.IUserMapper.getLoginByAccount (BaseJdbcLogger.java:159)- <==      Total: 1
+2018-05-21 10:09:06,848 INFO com.zxg.ZxgApplication (StartupInfoLogger.java:48)- Starting ZxgApplication on DESKTOP-KTOO70I with PID 27252 (D:\IdeaSpace\springboot\target\classes started by LianWei in D:\IdeaSpace\springboot)
+2018-05-21 10:09:06,848 DEBUG com.zxg.ZxgApplication (StartupInfoLogger.java:51)- Running with Spring Boot v1.5.8.RELEASE, Spring v4.3.12.RELEASE
+2018-05-21 10:09:06,848 INFO com.zxg.ZxgApplication (SpringApplication.java:593)- No active profile set, falling back to default profiles: default
+2018-05-21 10:09:08,154 INFO com.zxg.ZxgApplication (StartupInfoLogger.java:57)- Started ZxgApplication in 1.36 seconds (JVM running for 245.253)
+2018-05-21 10:09:25,367 INFO com.zxg.ZxgApplication (StartupInfoLogger.java:48)- Starting ZxgApplication on DESKTOP-KTOO70I with PID 27252 (D:\IdeaSpace\springboot\target\classes started by LianWei in D:\IdeaSpace\springboot)
+2018-05-21 10:09:25,367 DEBUG com.zxg.ZxgApplication (StartupInfoLogger.java:51)- Running with Spring Boot v1.5.8.RELEASE, Spring v4.3.12.RELEASE
+2018-05-21 10:09:25,368 INFO com.zxg.ZxgApplication (SpringApplication.java:593)- No active profile set, falling back to default profiles: default
+2018-05-21 10:09:26,922 INFO com.zxg.ZxgApplication (StartupInfoLogger.java:57)- Started ZxgApplication in 1.599 seconds (JVM running for 264.022)
+2018-05-21 10:09:33,848 INFO com.zxg.ZxgApplication (StartupInfoLogger.java:48)- Starting ZxgApplication on DESKTOP-KTOO70I with PID 27252 (D:\IdeaSpace\springboot\target\classes started by LianWei in D:\IdeaSpace\springboot)
+2018-05-21 10:09:33,848 DEBUG com.zxg.ZxgApplication (StartupInfoLogger.java:51)- Running with Spring Boot v1.5.8.RELEASE, Spring v4.3.12.RELEASE
+2018-05-21 10:09:33,848 INFO com.zxg.ZxgApplication (SpringApplication.java:593)- No active profile set, falling back to default profiles: default
+2018-05-21 10:09:44,696 INFO com.zxg.ZxgApplication (StartupInfoLogger.java:48)- Starting ZxgApplication on DESKTOP-KTOO70I with PID 27196 (D:\IdeaSpace\springboot\target\classes started by LianWei in D:\IdeaSpace\springboot)
+2018-05-21 10:09:44,699 DEBUG com.zxg.ZxgApplication (StartupInfoLogger.java:51)- Running with Spring Boot v1.5.8.RELEASE, Spring v4.3.12.RELEASE
+2018-05-21 10:09:44,700 INFO com.zxg.ZxgApplication (SpringApplication.java:593)- No active profile set, falling back to default profiles: default
+2018-05-21 10:09:50,202 INFO com.zxg.ZxgApplication (StartupInfoLogger.java:57)- Started ZxgApplication in 6.029 seconds (JVM running for 7.253)
+2018-05-21 10:10:20,699 DEBUG com.zxg.mapper.IUserMapper.getLoginByAccount (BaseJdbcLogger.java:159)- ==>  Preparing: SELECT id, username, account, header_pic as headerPic FROM mk_user WHERE account = ? 
+2018-05-21 10:10:20,721 DEBUG com.zxg.mapper.IUserMapper.getLoginByAccount (BaseJdbcLogger.java:159)- ==> Parameters: 11111111111(String)
+2018-05-21 10:10:20,769 DEBUG com.zxg.mapper.IUserMapper.getLoginByAccount (BaseJdbcLogger.java:159)- <==      Total: 1
+2018-05-21 10:11:00,350 DEBUG com.zxg.mapper.IContentMapper.findContent (BaseJdbcLogger.java:159)- ==>  Preparing: SELECT id, title, description, content, img, create_time as createTime, update_time as updateTime, STATUS, category_id as categoryId, hits, loves, user_id as userId FROM mk_content limit ?,? 
+2018-05-21 10:11:00,351 DEBUG com.zxg.mapper.IContentMapper.findContent (BaseJdbcLogger.java:159)- ==> Parameters: 0(Integer), 5(Integer)
+2018-05-21 10:11:00,520 DEBUG com.zxg.mapper.IContentMapper.findContent (BaseJdbcLogger.java:159)- <==      Total: 5
+2018-05-21 10:11:00,566 DEBUG com.zxg.mapper.IContentMapper.findContent (BaseJdbcLogger.java:159)- ==>  Preparing: SELECT id, title, description, content, img, create_time as createTime, update_time as updateTime, STATUS, category_id as categoryId, hits, loves, user_id as userId FROM mk_content limit ?,? 
+2018-05-21 10:11:00,567 DEBUG com.zxg.mapper.IContentMapper.findContent (BaseJdbcLogger.java:159)- ==> Parameters: 0(Integer), 5(Integer)
+2018-05-21 10:11:00,667 DEBUG com.zxg.mapper.IContentMapper.findContent (BaseJdbcLogger.java:159)- <==      Total: 5
+2018-05-21 10:11:13,851 DEBUG com.zxg.web.CategoryManagerController (CategoryManagerController.java:23)- toCategory....
+2018-05-21 10:11:13,890 DEBUG com.zxg.mapper.ICategoryMapper.quertAllCategory (BaseJdbcLogger.java:159)- ==>  Preparing: SELECT id, NAME, create_time AS createTime, `status` FROM mk_category 
+2018-05-21 10:11:13,891 DEBUG com.zxg.mapper.ICategoryMapper.quertAllCategory (BaseJdbcLogger.java:159)- ==> Parameters: 
+2018-05-21 10:11:13,929 DEBUG com.zxg.mapper.ICategoryMapper.quertAllCategory (BaseJdbcLogger.java:159)- <==      Total: 5
