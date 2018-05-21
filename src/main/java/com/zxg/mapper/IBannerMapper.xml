@@ -4,7 +4,7 @@
 
 <mapper namespace="com.zxg.mapper.IBannerMapper">
 
-    <select id="getBanner" resultType="banner">
+    <select id="getBanner" resultType="com.zxg.bean.Banner">
 	SELECT
 	id,
 	img,
